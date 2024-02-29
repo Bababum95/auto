@@ -1,0 +1,116 @@
+@import '../../../assets/styles/question';
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+$block-selector: '.wp-block-auto-table-of-contents';
+
+@mixin list {
+    list-style: none;
+    margin: 0;
+}
+
+#{$block-selector} {
+    &__categories {
+        @include list;
+        padding-left: 21px;
+        font-weight: 600;
+
+        &.depth-1 {
+            --size: 24px;
+            font-weight: 700;
+        }
+
+        &.depth-2 {
+            --size: 20px;
+        }
+
+        &.depth-3 {
+            --size: 18px;
+        }
+    }
+
+    &__category {
+        &-name {
+            margin-bottom: 24px;
+            display: block;
+            color: $color-grey;
+            line-height: 140%;
+            font-size: var(--size);
+            position: relative;
+            cursor: pointer;
+            width: fit-content;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 13px;
+                height: 8px;
+                position: absolute;
+                top: calc(var(--size) / 2);
+                left: -21px;
+                transform: rotate(-180deg);
+                background-image: url('../../../assets/icons/arow.svg');
+                // transition: all 0.3s;
+            }
+        }
+
+        &>ol {
+            display: none;
+            // max-height: 0;
+            // transition: max-height 0.3s;
+            overflow: hidden;
+        }
+
+        &.open {
+            &>#{$block-selector}__category {
+                &-name {
+                    color: $color-black;
+
+                    &::after {
+                        transform: rotate(0);
+                    }
+                }
+            }
+
+            &>ol {
+                // max-height: 100vh;
+                display: block;
+            }
+        }
+    }
+
+    &__links {
+        @include list;
+        padding-left: 36px;
+        margin-left: -15px;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: calc(100% - 20px);
+            background-color: $color-grey;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__link {
+        color: $color-grey;
+        margin-bottom: 16px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+
+        &:hover {
+            color: $color-black;
+            cursor: pointer;
+        }
+
+        &:last-child {
+            margin-bottom: 20px;
+        }
+    }
+}

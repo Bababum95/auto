@@ -1,0 +1,20 @@
+@import '../variables/colors';
+
+@mixin summary {
+    list-style: none;
+    margin-bottom: 16px;
+    color: $color-dark-grey;
+
+    &::marker {
+        display: none;
+    }
+
+    &:hover {
+        color: $color-black;
+        cursor: pointer;
+    }
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+}

@@ -1,0 +1,50 @@
+%content {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+%inputs-wrapper {
+    width: 50%;
+
+    input {
+        width: 100%;
+    }
+}
+
+.answer {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $admin-secondary;
+
+    &__title {
+        font-size: 1.5em;
+        margin: 0 0 10px;
+    }
+
+    &__content {
+        @extend %content;
+    }
+
+    &__text {
+        @extend %inputs-wrapper;
+    }
+
+    &__comment {
+        width: 100%;
+    }
+}
+
+
+.additional-info {
+    @extend %content;
+
+    &__wrapper {
+        @extend %inputs-wrapper;
+    }
+
+    &__dropdown,
+    &__textarea {
+        width: 100%;
+    }
+}
