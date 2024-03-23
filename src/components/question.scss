@@ -134,6 +134,9 @@
     &__button {
         background-color: $color-primary;
         color: $color-white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        transition: background-color 0.2s ease-in-out;
 
         @include hover {
             background-color: $color-active;

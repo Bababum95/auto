@@ -1,14 +1,11 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { postContent } from '@wordpress/icons';
 import metadata from './block.json';
-import { Edit } from './edit';
+import { Edit } from './Edit';
 import './style.scss';
 
 registerBlockType(metadata.name, {
 	...metadata,
-	icon: {
-		src: postContent,
-	},
+	icon: 'excerpt-view',
 	edit: Edit,
 	save: () => null,
 });
