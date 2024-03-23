@@ -8,7 +8,7 @@ $answers = get_post_meta($id, '_answers', true);
 ?>
 <div class="question" id="question-<?php echo $question_number; ?>">
     <div class="question__header">
-        <span class="question__number"><?php echo $question_number; ?></span>
+        <span class="question__number">Вопрос <?php echo $question_number; ?></span>
         <span class="question__points"><?php echo $penalty_points; ?> балла</span>
     </div>
     <?php
@@ -40,6 +40,6 @@ $answers = get_post_meta($id, '_answers', true);
     ?>
     <div class="question__definition">
         <p class="question__definition-title">Question Definition</p>
-        <?php the_content(); ?>
+        <?php echo get_post_field('post_content', $id); ?>
     </div>
 </div>

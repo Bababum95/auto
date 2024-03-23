@@ -1,0 +1,28 @@
+@mixin table($nth: 'even') {
+    td,
+    table,
+    th {
+        border: none !important;
+        border-spacing: 0;
+    }
+
+    th:first-child,
+    tr:first-child,
+    td:first-child {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+
+    tr:last-child,
+    th:last-child,
+    td:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    thead,
+    tr:nth-of-type(#{$nth}) {
+        border-radius: 8px;
+        background-color: #F2F2F2;
+    }
+}

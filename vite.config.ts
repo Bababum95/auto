@@ -11,15 +11,17 @@ export default defineConfig({
 	build: {
 		rollupOptions: {
 			input: {
-				main: resolve(__dirname, '/src/index.ts'),
-				styles: resolve(__dirname, '/src/styles.scss'),
+				main: resolve(__dirname, `${frontendDir}/index.ts`),
+				styles: resolve(__dirname, `${frontendDir}/styles.scss`),
 				theoryExamQuestionStyles: resolve(
 					__dirname,
-					`${adminDir}/meta-box/theory-exam-question.scss`
+					adminDir,
+					'/meta-box/theory-exam-question.scss'
 				),
 				theoryExamQuestionScripts: resolve(
 					__dirname,
-					`${adminDir}/meta-box/theory-exam-question.ts`
+					adminDir,
+					'/meta-box/theory-exam-question.ts'
 				),
 				'archive-questions': resolve(
 					__dirname,

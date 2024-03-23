@@ -6,5 +6,5 @@ $block-selector: '.wp-block-auto-questions-posts';
 #{$block-selector} {
     @include flex-column;
     gap: 20px;
-    max-width: 900px;
+    flex-basis: 900px;
 }

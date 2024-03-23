@@ -193,5 +193,14 @@
 			"name": "footer",
 			"title": "Footer"
 		}
+	],
+	"customTemplates": [
+		{
+			"name": "single-theory-exam-question",
+			"postTypes": [
+				"page"
+			],
+			"title": "Single Theory Exam Question"
+		}
 	]
 }

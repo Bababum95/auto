@@ -10,6 +10,17 @@ $block-selector: '.wp-block-auto-table-of-contents';
 }
 
 #{$block-selector} {
+    position: sticky;
+    left: 0;
+    top: $top;
+    flex-basis: 417px;
+    max-height: calc(100vh - #{$top});
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+       display: none;
+    }
+
     &__categories {
         @include list;
         padding-left: 21px;
@@ -50,21 +61,32 @@ $block-selector: '.wp-block-auto-table-of-contents';
                 left: -21px;
                 transform: rotate(-180deg);
                 background-image: url('../../../assets/icons/arow.svg');
-                // transition: all 0.3s;
+                opacity: .6;
             }
         }
 
         &>ol {
             display: none;
-            // max-height: 0;
-            // transition: max-height 0.3s;
             overflow: hidden;
+        }
+
+        &:has(.current),
+        &.current {
+            &>#{$block-selector}__category {
+                &-name {
+                    color: $color-black;
+
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+            }
         }
 
         &.open {
             &>#{$block-selector}__category {
                 &-name {
-                    color: $color-black;
+                    // color: $color-black;
 
                     &::after {
                         transform: rotate(0);
@@ -73,7 +95,6 @@ $block-selector: '.wp-block-auto-table-of-contents';
             }
 
             &>ol {
-                // max-height: 100vh;
                 display: block;
             }
         }
@@ -104,7 +125,7 @@ $block-selector: '.wp-block-auto-table-of-contents';
         font-size: 16px;
         line-height: 140%;
 
-        &:hover {
+        @include hover() {
             color: $color-black;
             cursor: pointer;
         }

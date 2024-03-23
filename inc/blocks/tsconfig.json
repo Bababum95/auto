@@ -16,5 +16,10 @@
         // Recommended
         "moduleResolution": "node",
         "resolveJsonModule": true,
+        "baseUrl": "./",
+        "paths": {
+            "@components": [ "share/components/index.ts" ],
+            "@images": [ "assets/images.ts" ],
+        },
     }
 }

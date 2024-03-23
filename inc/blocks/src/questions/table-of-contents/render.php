@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Display the hierarchy of categories starting from the specified parent ID.
  *
  * @param int $parent_id the ID of the parent category
  */
 function display_categories_hierarchy($parent_id = 0, $depth = 1) {
+    $current_category_id = get_query_var('cat');
     $categories = get_categories(array(
         'type'         => 'theory-exam-question', 
         'orderby'      => 'name',
@@ -24,6 +26,9 @@ function display_categories_hierarchy($parent_id = 0, $depth = 1) {
         ));
 
         if (!empty($posts)) {
+            // Sort the posts by question number
+            usort($posts, 'compare_question_numbers');
+            
             echo '<ol class="wp-block-auto-table-of-contents__links">';
             foreach ($posts as $post_id) {
                 $question_number = get_post_meta($post_id, '_question_number', true);
@@ -44,9 +49,16 @@ function display_categories_hierarchy($parent_id = 0, $depth = 1) {
 
         return;
     }
+
     echo '<ol class="wp-block-auto-table-of-contents__categories depth-' . $depth . '">';
     foreach ($categories as $category) {
-        echo '<li class="wp-block-auto-table-of-contents__category open">
+        $is_current_category = ($category->term_id == $current_category_id);
+
+        echo '<li class="wp-block-auto-table-of-contents__category'
+                . ($is_current_category ? ' current' : '')
+                . '" data-category-url="'
+                . get_term_link($category)
+            . '">
                 <span class="wp-block-auto-table-of-contents__category-name">'
                     . $category->name
                 . '</span>';

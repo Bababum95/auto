@@ -1,4 +1,5 @@
 const wpConfig = require('@wordpress/scripts/config/webpack.config');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 // Modified config
 module.exports = {
@@ -44,5 +45,6 @@ module.exports = {
 				? wpConfig.resolve.extensions || ['.js', '.jsx']
 				: []),
 		],
+		plugins: [new TsconfigPathsPlugin()],
 	},
 };

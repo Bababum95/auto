@@ -20,6 +20,14 @@ $breakpoints: (
 
 @mixin hover() {
   @media (any-hover: hover) {
-    @content;
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
   }
 }
