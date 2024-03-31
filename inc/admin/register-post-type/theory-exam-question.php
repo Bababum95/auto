@@ -45,6 +45,7 @@ function theory_exam_questions_post_type() {
         'hierarchical'          => true,
         'public'                => false,
         'show_ui'               => true,
+        'show_in_rest'          => true,
         'show_in_menu'          => true,
         'menu_position'         => 66,
         'menu_icon'             => 'dashicons-car',

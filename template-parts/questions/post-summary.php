@@ -18,8 +18,8 @@ echo '<div class="question" id="question-' . $question_number . '">';
 
     printf('
         <a href="%s" class="question__button">
-            Перейти к вопросу –>
+            Zur Frage übergehen ->
         </a>
         </div>',
-        get_permalink($id)
+        get_post_meta($id, '_post_link', true)
     );

@@ -1,9 +1,24 @@
 @import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
 
-$block-selector: '.wp-block-auto-questions-posts';
+$block-selector: '.wp-block-auto-single-question';
 
 #{$block-selector} {
-    @include flex-column;
-    gap: 20px;
     max-width: 900px;
+
+    &__navigations {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        margin-top: 20px;
+    }
+
+    &__prev,
+    &__next {
+        @include default-button(16px 20px, $color-secondary, $color-black);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
 }

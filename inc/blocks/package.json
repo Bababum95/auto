@@ -12,10 +12,6 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"prerelease": "npm version prerelease",
-		"patch": "npm version patch",
-		"minor": "npm version minor",
-		"major": "npm version major",
 		"update": "npm update"
 	},
 	"devDependencies": {
@@ -23,6 +19,9 @@
 		"@types/wordpress__blocks": "^12.5.13",
 		"@types/wordpress__components": "^23.0.11",
 		"@wordpress/scripts": "^27.3.0",
+		"@wordpress/eslint-plugin": "^17.9.0",
+		"axios": "^1.6.8",
+		"prettier": "^3.2.5",
 		"ts-loader": "^9.5.1",
 		"tsconfig-paths-webpack-plugin": "^4.1.0",
 		"typescript": "^5.3.3"
@@ -32,6 +31,7 @@
 		"@wordpress/element": "^5.31.0",
 		"@wordpress/icons": "^9.45.0",
 		"@wordpress/server-side-render": "^4.29.0",
-		"react-content-loader": "^6.2.1"
+		"react-content-loader": "^6.2.1",
+		"react-svg": "^16.1.33"
 	}
 }

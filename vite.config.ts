@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 const MODE = process.env.NODE_ENV || 'production';
 
@@ -15,13 +16,11 @@ export default defineConfig({
 				styles: resolve(__dirname, `${frontendDir}/styles.scss`),
 				theoryExamQuestionStyles: resolve(
 					__dirname,
-					adminDir,
-					'/meta-box/theory-exam-question.scss'
+					'src/admin/meta-box/theory-exam-question.scss'
 				),
 				theoryExamQuestionScripts: resolve(
 					__dirname,
-					adminDir,
-					'/meta-box/theory-exam-question.ts'
+					'src/admin/meta-box/theory-exam-question.ts'
 				),
 				'archive-questions': resolve(
 					__dirname,
@@ -44,4 +43,5 @@ export default defineConfig({
 			},
 		},
 	},
+	plugins: [ViteImageOptimizer()],
 });

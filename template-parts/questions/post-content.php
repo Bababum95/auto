@@ -41,7 +41,7 @@ echo '<div class="question" id="question-' . $question_number . '">';
     if (!empty($definition)) {
         printf('
             <div class="question__definition">
-                <p class="question__definition-title">Question Definition</p>
+                <p class="question__definition-title">Fragenerklärung</p>
                 %s
             </div>',
             $definition,

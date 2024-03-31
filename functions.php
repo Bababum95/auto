@@ -19,6 +19,7 @@ add_action('after_setup_theme', 'auto_theme_support');
 
 // Require the following PHP files
 require_once get_template_directory() . '/quick-change.php';
+require_once get_template_directory() . '/inc/api/index.php';
 require_once get_template_directory() . '/inc/functions/index.php';
 require_once get_template_directory() . '/inc/admin/index.php';
 require_once get_template_directory() . '/inc/blocks/index.php';

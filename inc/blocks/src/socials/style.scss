@@ -1,0 +1,25 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/variables';
+
+$block-selector: '.wp-block-auto-socials';
+
+#{$block-selector} {
+    display: flex;
+    gap: 24px;
+    
+    &__link {
+        color: $color-secondary;
+        fill: currentColor;
+        transition: all 0.1s linear;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @include hover {
+            color: $color-active;
+            transform: scale(1.2);
+        }
+    }
+}

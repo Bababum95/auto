@@ -5,15 +5,20 @@
 	"version": "1.0.0",
 	"title": "Question single post",
 	"category": "theme",
-	"description": "Question single post contetnt",
+	"description": "Question single post contetnt. Select the question post from the dropdown in the sidebar.",
 	"example": {},
-	"attributes": {},
+	"attributes": {
+		"postId": {
+			"type": "string",
+			"default": "0"
+		}
+	},
 	"supports": {
 		"html": false
 	},
 	"textdomain": "auto",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
 	"render": "file:./render.php"
 }

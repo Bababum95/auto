@@ -5,6 +5,19 @@ $block-selector: '.wp-block-auto-questions-posts';
 
 #{$block-selector} {
     @include flex-column;
+    position: relative;
     gap: 20px;
     flex-basis: 900px;
+
+    &__observed {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+
+        &.loading {
+            opacity: 1;
+        }
+    }
 }

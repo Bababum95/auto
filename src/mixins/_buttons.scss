@@ -1,0 +1,16 @@
+@import './media';
+
+@mixin default-button($padding: 16px 20px, $bg: $color-primary, $color: $color-white) {
+    border: none;
+    border-radius: 12px;
+    background-color: $bg;
+    color: $color;
+    padding: $padding;
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color 0.1s linear;
+
+    @include hover {
+        background-color: $color-active;
+    }
+}

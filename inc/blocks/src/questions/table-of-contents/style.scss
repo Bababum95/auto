@@ -51,17 +51,12 @@ $block-selector: '.wp-block-auto-table-of-contents';
             cursor: pointer;
             width: fit-content;
 
-            &::after {
-                content: '';
+            svg {
                 display: block;
-                width: 13px;
-                height: 8px;
                 position: absolute;
                 top: calc(var(--size) / 2);
                 left: -21px;
                 transform: rotate(-180deg);
-                background-image: url('../../../assets/icons/arow.svg');
-                opacity: .6;
             }
         }
 
@@ -75,10 +70,6 @@ $block-selector: '.wp-block-auto-table-of-contents';
             &>#{$block-selector}__category {
                 &-name {
                     color: $color-black;
-
-                    &::after {
-                        opacity: 1;
-                    }
                 }
             }
         }
@@ -88,7 +79,7 @@ $block-selector: '.wp-block-auto-table-of-contents';
                 &-name {
                     // color: $color-black;
 
-                    &::after {
+                    svg {
                         transform: rotate(0);
                     }
                 }
@@ -124,6 +115,10 @@ $block-selector: '.wp-block-auto-table-of-contents';
         font-weight: 500;
         font-size: 16px;
         line-height: 140%;
+
+        &.current {
+            color: $color-black;
+        }
 
         @include hover() {
             color: $color-black;

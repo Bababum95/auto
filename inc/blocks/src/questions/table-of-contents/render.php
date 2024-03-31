@@ -6,12 +6,11 @@
  * @param int $parent_id the ID of the parent category
  */
 function display_categories_hierarchy($parent_id = 0, $depth = 1) {
-    $current_category_id = get_query_var('cat');
     $categories = get_categories(array(
         'type'         => 'theory-exam-question', 
         'orderby'      => 'name',
         'order'        => 'ASC',
-        'hide_empty'   => 0,
+        'hide_empty'   => 1,
         'parent'       => $parent_id,
         'exclude'      => 1,
     ));
@@ -52,22 +51,32 @@ function display_categories_hierarchy($parent_id = 0, $depth = 1) {
 
     echo '<ol class="wp-block-auto-table-of-contents__categories depth-' . $depth . '">';
     foreach ($categories as $category) {
-        $is_current_category = ($category->term_id == $current_category_id);
 
-        echo '<li class="wp-block-auto-table-of-contents__category'
-                . ($is_current_category ? ' current' : '')
-                . '" data-category-url="'
-                . get_term_link($category)
-            . '">
-                <span class="wp-block-auto-table-of-contents__category-name">'
-                    . $category->name
-                . '</span>';
+        printf('
+            <li
+                class="wp-block-auto-table-of-contents__category"
+                data-category-url="%s"
+                %s
+            >
+                <span class="wp-block-auto-table-of-contents__category-name">
+                    <svg width="13" height="8">
+                        <use xlink:href="#top-arrow"></use>
+                    </svg>
+                    %s
+                </span>',
+            get_term_link($category),
+            $depth === 3 ? 'data-category-id="' . $category->term_id . '"' : '',
+            $category->name,
+        );
+
         echo display_categories_hierarchy($category->term_id, $depth + 1);
         echo '</li>';
+
     }
     echo '</ol>';
 }
 
 echo '<nav ' . get_block_wrapper_attributes() . '>';
 display_categories_hierarchy();
+echo generate_svg_sprite(['top-arrow']);
 echo '</nav>';

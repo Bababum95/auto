@@ -1,0 +1,28 @@
+@import '../../assets/styles/variables';
+
+.sidebar-item {
+    padding-bottom: 5px;
+    
+    &:not(:last-of-type) {
+        margin-bottom: 15px;
+        border-bottom: 1px solid $admin-secondary;
+    }
+}
+
+.icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.add-button {
+    width: 100%;
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.remove-button {
+    width: 100%;
+}

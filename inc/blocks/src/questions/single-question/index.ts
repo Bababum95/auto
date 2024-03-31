@@ -5,7 +5,7 @@ import { Edit } from './edit';
 import './style.scss';
 
 registerBlockType(metadata.name, {
-	...metadata,
+	...metadata as any,
 	icon: {
 		src: postContent,
 	},
